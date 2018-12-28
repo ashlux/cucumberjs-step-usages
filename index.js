@@ -1,1 +1,1 @@
-module.exports.findUnusedSteps = require("./find-unused-steps");
+module.exports = require("./find-unused-steps");

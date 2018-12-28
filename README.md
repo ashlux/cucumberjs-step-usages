@@ -22,7 +22,7 @@ const cucumberJsStepUsages = require("cucumberjs-step-usages");
 module.exports = function () {
     this.setDefaultTimeout(60000);
     
-    cucumberJsStepUsages.findUnusedSteps.call(this);
+    cucumberJsStepUsages.findUnusedSteps(this);
 
     // Other setup things that you want to do goes here
 };
