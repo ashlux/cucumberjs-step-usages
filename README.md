@@ -7,7 +7,7 @@ This small node module helps you find:
 
 ## Installation
 
-> This is intented to work with [cucumber-js version 1.x only](https://github.com/cucumber/cucumber-js/tree/1.x).
+> This is intended to work with [cucumber-js version 1.x only](https://github.com/cucumber/cucumber-js/tree/1.x).
 
 First, install the module as a dev dependency:
 
