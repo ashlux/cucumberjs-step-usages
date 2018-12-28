@@ -19,5 +19,15 @@
   },
   "peerDependencies": {
     "cucumber": "< 2.x.x"
-  }
+  },
+  "keywords": [
+    "cucumber",
+    "cucumberjs",
+    "cucumber js",
+    "cucumber-js",
+    "cuke",
+    "usage",
+    "unused",
+    "steps"
+  ]
 }
