@@ -1,7 +1,7 @@
 {
   "name": "cucumberjs-step-usages",
   "description": "Monkey patch CucumberJS v1 to notify which step functions are not used.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": false,
   "license": "Apache-2.0",
   "author": "Ash Lux <ashlux@gmail.com> (https://www.ashlux.com/)",
