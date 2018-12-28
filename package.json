@@ -11,10 +11,10 @@
     "url": "git@github.com:ashlux/cucumberjs-step-usages.git"
   },
   "dependencies": {
+    "colors": "^1.3.3",
     "lodash": "^4.17.2"
   },
   "devDependencies": {
-    "colors": "^1.3.3",
     "cucumber": "^1.3.3"
   },
   "peerDependencies": {
