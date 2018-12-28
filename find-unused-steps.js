@@ -38,11 +38,16 @@ module.exports = {
                 });
             });
 
-            _.forEach(_.keys(usages), function (matcher) {
-                if (usages[matcher] === 0) {
-                    console.info(`Step ${matcher} is not used.`)
-                }
-            });
+            const unusedSteps = _.keys(_.pickBy(usages, function (numberOfUsages) {
+                return numberOfUsages === 0;
+            }));
+
+            if (unusedSteps.length) {
+                console.info("\nUnused steps have been found:\n\n");
+                _.forEach(unusedSteps, function(unusedStep, index) {
+                    console.info((index + 1) + ". " + unusedStep);
+                });
+            }
 
             callback();
         });
