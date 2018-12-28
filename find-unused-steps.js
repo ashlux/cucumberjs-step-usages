@@ -1,3 +1,5 @@
+require('colors');
+
 const _ = require("lodash");
 
 const usages = {};
@@ -44,9 +46,10 @@ module.exports = {
             }));
 
             if (unusedSteps.length) {
-                console.info("\nUnused steps have been found:\n\n");
+                console.info("\nUnused steps have been found:\n\n".bold.underline.red);
                 _.forEach(unusedSteps, function(unusedStep, index) {
-                    console.info((index + 1) + ". " + unusedStep);
+                    let number = (index + 1 + ". ").bold.red;
+                    console.info(number + unusedStep.red);
                 });
             }
 
