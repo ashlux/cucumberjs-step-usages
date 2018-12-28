@@ -1,0 +1,22 @@
+{
+  "name": "cucumberjs-step-usages",
+  "description": "Monkey patch CucumberJS v1 to notify which step functions are not used.",
+  "version": "0.0.0",
+  "private": false,
+  "license": "Apache-2.0",
+  "author": "Ash Lux <ashlux@gmail.com> (https://www.ashlux.com/)",
+  "main": "./monkey.js",
+  "repository": {
+    "type": "git",
+    "url": "git@ghe.aa.com:TechOps-SOA/partorder.git"
+  },
+  "dependencies": {
+    "lodash": "^4.17.2"
+  },
+  "devDependencies": {
+    "cucumber": "^1.3.3"
+  },
+  "peerDependencies": {
+    "cucumber": "< 2.x.x"
+  }
+}

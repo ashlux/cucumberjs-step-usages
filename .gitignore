@@ -1,0 +1,47 @@
+.settings/*
+/bin/
+/.apt_generated/
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+.mvn/
+
+### Node ###
+.env
+node_modules
+npm-debug.log
+
+### Cuke ###
+cucumberReport.json
+cucumber_report_bootstrap.html
+cucumber_report_foundation.html
+cucumber_report_simple.html
+
+### jmeter ###
+jmeter*.log
+
+# Temporary Word docs
+~*.doc
+pom.xml.versionsBackup
