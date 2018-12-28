@@ -3,7 +3,7 @@
 This small node module helps you find:
 
 1. Steps that are defined but not utilized
-1. How many times a step is utilized
+1. How many times a step is utilized (planned)
 
 ## Installation
 
