@@ -5,10 +5,10 @@
   "private": false,
   "license": "Apache-2.0",
   "author": "Ash Lux <ashlux@gmail.com> (https://www.ashlux.com/)",
-  "main": "./monkey.js",
+  "main": "./index.js",
   "repository": {
     "type": "git",
-    "url": "git@ghe.aa.com:TechOps-SOA/partorder.git"
+    "url": "git@github.com:ashlux/cucumberjs-step-usages.git"
   },
   "dependencies": {
     "lodash": "^4.17.2"

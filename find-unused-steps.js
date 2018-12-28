@@ -1,8 +1,9 @@
 const _ = require("lodash");
 
-const usages = {};
-
 module.exports = function () {
+    const cucumberRuntime = this;
+    const usages = {};
+
     function monkeyPatch(funcToMonkeyPatch) {
         return _.wrap(funcToMonkeyPatch, function (givenFn, matcher, stepFn) {
             const that = this;
@@ -16,11 +17,11 @@ module.exports = function () {
         });
     }
 
-    this.Given = monkeyPatch(this.Given);
-    this.When = monkeyPatch(this.When);
-    this.Then = monkeyPatch(this.Then);
+    cucumberRuntime.Given = monkeyPatch(cucumberRuntime.Given);
+    cucumberRuntime.When = monkeyPatch(cucumberRuntime.When);
+    cucumberRuntime.Then = monkeyPatch(cucumberRuntime.Then);
 
-    this.registerHandler('AfterFeatures', function (features, callback) {
+    cucumberRuntime.registerHandler('AfterFeatures', function (features, callback) {
         _.forEach(features, function (feature) {
             _.forEach(feature.getScenarios(), function (scenario) {
                 _.forEach(scenario.getSteps(), function (step) {
@@ -33,7 +34,6 @@ module.exports = function () {
             });
         });
 
-        console.info("Usages", usages);
         _.forEach(_.keys(usages), function (matcher) {
             if (usages[matcher] === 0) {
                 console.info(`Step ${matcher} is not used.`)
@@ -41,5 +41,5 @@ module.exports = function () {
         });
 
         callback();
-    });
+    }.bind(cucumberRuntime));
 };
