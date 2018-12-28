@@ -27,3 +27,8 @@ module.exports = function () {
     // Other setup things that you want to do goes here
 };
 ```
+
+## Find step usages
+
+You can find steps usages fast by running Cucumberjs in dry-run mode. For example: `cucumber.js --dry-run ./features`.
+
