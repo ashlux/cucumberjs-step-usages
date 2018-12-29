@@ -3,7 +3,11 @@
 This small node module helps you find:
 
 1. Steps that are defined but not utilized
-1. How many times a step is utilized (planned)
+1. How many times a step is utilized (planned?)
+
+Example output when finding steps that are defined but not utilized:
+
+![image](example-output.png)
 
 ## Installation
 
@@ -31,4 +35,3 @@ module.exports = function () {
 ## Find step usages
 
 You can find steps usages fast by running Cucumberjs in dry-run mode. For example: `cucumber.js --dry-run ./features`.
-

@@ -2,14 +2,19 @@ require('colors');
 
 const _ = require("lodash");
 
-const usages = {};
+const usages = {
+    // string coerced regexp: {usageCount, regexp}
+};
 
 function startTrackingUsages(cucumberRuntime) {
     function monkeyPatch(funcToMonkeyPatch) {
-        return _.wrap(funcToMonkeyPatch, function (givenFn, matcher, stepFn) {
+        return _.wrap(funcToMonkeyPatch, function (givenFn, regexp, stepFn) {
             const that = this;
-            usages[matcher] = 0;
-            return givenFn.call(that, matcher, stepFn);
+            usages[String(regexp)] = {
+                usageCount: 0,
+                regexp: regexp
+            };
+            return givenFn.call(that, regexp, stepFn);
         });
     }
 
@@ -22,9 +27,9 @@ function calculateUsages(features) {
     _.forEach(features, function (feature) {
         _.forEach(feature.getScenarios(), function (scenario) {
             _.forEach(scenario.getSteps(), function (step) {
-                _.forEach(_.keys(usages), function (matcher) {
-                    if (new RegExp(matcher.substring(1, matcher.length - 1)).test(step.getName())) {
-                        usages[matcher] = usages[matcher] + 1;
+                _.forEach(usages, function (usage) {
+                    if (usage.regexp.test(step.getName())) {
+                        usage.usageCount = usage.usageCount + 1;
                     }
                 });
             });
@@ -41,13 +46,13 @@ module.exports = {
         cucumberRuntime.registerHandler('AfterFeatures', function (features, callback) {
             calculateUsages(features);
 
-            const unusedSteps = _.keys(_.pickBy(usages, function (numberOfUsages) {
-                return numberOfUsages === 0;
+            const unusedSteps = _.keys(_.pickBy(usages, function (usage) {
+                return usage.usageCount === 0;
             }));
 
             if (unusedSteps.length) {
                 console.info("\nUnused steps have been found:\n\n".bold.underline.red);
-                _.forEach(unusedSteps, function(unusedStep, index) {
+                _.forEach(unusedSteps, function (unusedStep, index) {
                     let number = (index + 1 + ". ").bold.red;
                     console.info(number + unusedStep.red);
                 });
